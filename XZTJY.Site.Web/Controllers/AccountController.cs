@@ -14,19 +14,21 @@ using XZTJY.Site.Apply.Impl;
 using XZTJY.Site.Apply;
 using XZTJY.Component.Tools;
 using XZTJY.Component.Tools.Extensions;
+using System.ComponentModel.Composition;
 namespace XZTJY.Site.Web.Controllers
 {
     
+   [Export]
     public class AccountController : Controller
     {
 
         public AccountController()
         {
-            AccountContract = new AccountSiteService();
+            //AccountContract = new AccountSiteService();
         }
 
         #region 属性
-
+        [Import]
         public IAccountSiteContract AccountContract { get; set; }
 
         #endregion
