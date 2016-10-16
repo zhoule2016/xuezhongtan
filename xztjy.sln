@@ -1,0 +1,136 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Infrastructure（基础设施层）", "1-Infrastructure（基础设施层）", "{8936834E-3572-4275-B0F3-D943ED461F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Component.Data", "XZTJY.Component.Data\XZTJY.Component.Data.csproj", "{F2464C23-AF71-4BC9-8904-D33925CFE3EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Core (业务核心层)", "2-Core (业务核心层)", "{7ECA4A9B-C4F3-4C91-ADC2-C9B712C006ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Services.Core", "XZTJY.Services.Core\XZTJY.Services.Core.csproj", "{9A815C3E-6817-4B5C-8A1A-731BE585892E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Core.Data", "XZTJY.Core.Data\XZTJY.Core.Data.csproj", "{C425E18F-1EBE-4143-884F-65DFD0ADB736}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Core.Models", "XZTJY.Core.Models\XZTJY.Core.Models.csproj", "{8C035FB3-EDA5-4858-B5A3-EA48A1720D73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Application (站点应用层)", "3-Application (站点应用层)", "{34AEDACC-112D-4E78-9066-4044A0A1C822}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Site.Apply", "XZTJY.Site.Apply\XZTJY.Site.Apply.csproj", "{F0643DBC-32A3-46C2-AF4C-3D2156456EC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Site.Models", "XZTJY.Site.Models\XZTJY.Site.Models.csproj", "{A1849D46-4F1A-4562-9809-687EBF1889CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4-Presentation (展现层)", "4-Presentation (展现层)", "{C852D4D9-03A1-4849-85A4-2D69A7C10296}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Consoles", "XZTJY.Consoles\XZTJY.Consoles.csproj", "{FA25E017-055B-4648-9D9D-4F15299141F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Site.Web", "XZTJY.Site.Web\XZTJY.Site.Web.csproj", "{BA0CA5FE-A18D-41B1-B0C6-E7032B38C293}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "文档", "文档", "{8120A777-1CFE-4782-8588-A296C4B784C5}"
+	ProjectSection(SolutionItems) = preProject
+		架构说明.txt = 架构说明.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Component.Tools", "XZTJY.Component.Tools\XZTJY.Component.Tools.csproj", "{31397840-BBFF-40F3-8060-B03019A3E5FE}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 10
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://xztjy.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = XZTJY.Component.Data\\XZTJY.Component.Data.csproj
+		SccProjectTopLevelParentUniqueName1 = xztjy.sln
+		SccProjectName1 = XZTJY.Component.Data
+		SccLocalPath1 = XZTJY.Component.Data
+		SccProjectUniqueName2 = XZTJY.Services.Core\\XZTJY.Services.Core.csproj
+		SccProjectTopLevelParentUniqueName2 = xztjy.sln
+		SccProjectName2 = XZTJY.Services.Core
+		SccLocalPath2 = XZTJY.Services.Core
+		SccProjectUniqueName3 = XZTJY.Core.Data\\XZTJY.Core.Data.csproj
+		SccProjectTopLevelParentUniqueName3 = xztjy.sln
+		SccProjectName3 = XZTJY.Core.Data
+		SccLocalPath3 = XZTJY.Core.Data
+		SccProjectUniqueName4 = XZTJY.Core.Models\\XZTJY.Core.Models.csproj
+		SccProjectTopLevelParentUniqueName4 = xztjy.sln
+		SccProjectName4 = XZTJY.Core.Models
+		SccLocalPath4 = XZTJY.Core.Models
+		SccProjectUniqueName5 = XZTJY.Site.Apply\\XZTJY.Site.Apply.csproj
+		SccProjectTopLevelParentUniqueName5 = xztjy.sln
+		SccProjectName5 = XZTJY.Site.Apply
+		SccLocalPath5 = XZTJY.Site.Apply
+		SccProjectUniqueName6 = XZTJY.Site.Models\\XZTJY.Site.Models.csproj
+		SccProjectTopLevelParentUniqueName6 = xztjy.sln
+		SccProjectName6 = XZTJY.Site.Models
+		SccLocalPath6 = XZTJY.Site.Models
+		SccProjectUniqueName7 = XZTJY.Consoles\\XZTJY.Consoles.csproj
+		SccProjectTopLevelParentUniqueName7 = xztjy.sln
+		SccProjectName7 = XZTJY.Consoles
+		SccLocalPath7 = XZTJY.Consoles
+		SccProjectUniqueName8 = XZTJY.Site.Web\\XZTJY.Site.Web.csproj
+		SccProjectTopLevelParentUniqueName8 = xztjy.sln
+		SccProjectName8 = XZTJY.Site.Web
+		SccLocalPath8 = XZTJY.Site.Web
+		SccProjectUniqueName9 = XZTJY.Component.Tools\\XZTJY.Component.Tools.csproj
+		SccProjectTopLevelParentUniqueName9 = xztjy.sln
+		SccProjectName9 = XZTJY.Component.Tools
+		SccLocalPath9 = XZTJY.Component.Tools
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2464C23-AF71-4BC9-8904-D33925CFE3EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2464C23-AF71-4BC9-8904-D33925CFE3EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2464C23-AF71-4BC9-8904-D33925CFE3EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2464C23-AF71-4BC9-8904-D33925CFE3EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A815C3E-6817-4B5C-8A1A-731BE585892E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A815C3E-6817-4B5C-8A1A-731BE585892E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A815C3E-6817-4B5C-8A1A-731BE585892E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A815C3E-6817-4B5C-8A1A-731BE585892E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C425E18F-1EBE-4143-884F-65DFD0ADB736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C425E18F-1EBE-4143-884F-65DFD0ADB736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C425E18F-1EBE-4143-884F-65DFD0ADB736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C425E18F-1EBE-4143-884F-65DFD0ADB736}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C035FB3-EDA5-4858-B5A3-EA48A1720D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C035FB3-EDA5-4858-B5A3-EA48A1720D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C035FB3-EDA5-4858-B5A3-EA48A1720D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C035FB3-EDA5-4858-B5A3-EA48A1720D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0643DBC-32A3-46C2-AF4C-3D2156456EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0643DBC-32A3-46C2-AF4C-3D2156456EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0643DBC-32A3-46C2-AF4C-3D2156456EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0643DBC-32A3-46C2-AF4C-3D2156456EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1849D46-4F1A-4562-9809-687EBF1889CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1849D46-4F1A-4562-9809-687EBF1889CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1849D46-4F1A-4562-9809-687EBF1889CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1849D46-4F1A-4562-9809-687EBF1889CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA25E017-055B-4648-9D9D-4F15299141F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA25E017-055B-4648-9D9D-4F15299141F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA25E017-055B-4648-9D9D-4F15299141F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA25E017-055B-4648-9D9D-4F15299141F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0CA5FE-A18D-41B1-B0C6-E7032B38C293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0CA5FE-A18D-41B1-B0C6-E7032B38C293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0CA5FE-A18D-41B1-B0C6-E7032B38C293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0CA5FE-A18D-41B1-B0C6-E7032B38C293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31397840-BBFF-40F3-8060-B03019A3E5FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31397840-BBFF-40F3-8060-B03019A3E5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31397840-BBFF-40F3-8060-B03019A3E5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31397840-BBFF-40F3-8060-B03019A3E5FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F2464C23-AF71-4BC9-8904-D33925CFE3EC} = {8936834E-3572-4275-B0F3-D943ED461F24}
+		{9A815C3E-6817-4B5C-8A1A-731BE585892E} = {7ECA4A9B-C4F3-4C91-ADC2-C9B712C006ED}
+		{C425E18F-1EBE-4143-884F-65DFD0ADB736} = {7ECA4A9B-C4F3-4C91-ADC2-C9B712C006ED}
+		{8C035FB3-EDA5-4858-B5A3-EA48A1720D73} = {7ECA4A9B-C4F3-4C91-ADC2-C9B712C006ED}
+		{F0643DBC-32A3-46C2-AF4C-3D2156456EC6} = {34AEDACC-112D-4E78-9066-4044A0A1C822}
+		{A1849D46-4F1A-4562-9809-687EBF1889CA} = {34AEDACC-112D-4E78-9066-4044A0A1C822}
+		{FA25E017-055B-4648-9D9D-4F15299141F7} = {C852D4D9-03A1-4849-85A4-2D69A7C10296}
+		{BA0CA5FE-A18D-41B1-B0C6-E7032B38C293} = {C852D4D9-03A1-4849-85A4-2D69A7C10296}
+		{31397840-BBFF-40F3-8060-B03019A3E5FE} = {8936834E-3572-4275-B0F3-D943ED461F24}
+	EndGlobalSection
+EndGlobal
