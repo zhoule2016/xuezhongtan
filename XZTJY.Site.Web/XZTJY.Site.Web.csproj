@@ -229,6 +229,24 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XZTJY.Component.Tools\XZTJY.Component.Tools.csproj">
+      <Project>{31397840-bbff-40f3-8060-b03019a3e5fe}</Project>
+      <Name>XZTJY.Component.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Services.Core\XZTJY.Services.Core.csproj">
+      <Project>{9a815c3e-6817-4b5c-8a1a-731be585892e}</Project>
+      <Name>XZTJY.Services.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Site.Apply\XZTJY.Site.Apply.csproj">
+      <Project>{f0643dbc-32a3-46c2-af4c-3d2156456ec6}</Project>
+      <Name>XZTJY.Site.Apply</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Site.Models\XZTJY.Site.Models.csproj">
+      <Project>{a1849d46-4f1a-4562-9809-687ebf1889ca}</Project>
+      <Name>XZTJY.Site.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
