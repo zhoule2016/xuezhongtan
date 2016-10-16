@@ -9,13 +9,17 @@ using XZTJY.Component.Tools;
 using XZTJY.Services.Core.Impl;
 using XZTJY.Site.Models;
 using XZTJY.Core.Models;
+using System.ComponentModel.Composition;
 
 namespace XZTJY.Site.Apply.Impl
 {
     /// <summary>
     ///     账户模块站点业务实现
-    /// </summary>
-    public class AccountSiteService : AccountService, IAccountSiteContract
+    /// </summary
+    /// >
+    /// 
+    [Export(typeof(IAccountSiteContract))]
+     internal class AccountSiteService : AccountService, IAccountSiteContract
     {
         /// <summary>
         ///     用户登录
