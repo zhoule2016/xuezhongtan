@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using XZTJY.Core.Data.Initialize;
 using XZTJY.Site.Apply.Helper.Ioc;
 
 namespace XZTJY.Site.Web
@@ -23,6 +24,9 @@ namespace XZTJY.Site.Web
             DirectoryCatalog catalog = new DirectoryCatalog(AppDomain.CurrentDomain.SetupInformation.PrivateBinPath);
             MefDependencySolver solver = new MefDependencySolver(catalog);
             DependencyResolver.SetResolver(solver);
+
+            //初始化数据库
+            DatabaseInitializer.Initialize();
         }
     }
 }

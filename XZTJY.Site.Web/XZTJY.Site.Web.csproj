@@ -235,6 +235,10 @@
       <Project>{31397840-bbff-40f3-8060-b03019a3e5fe}</Project>
       <Name>XZTJY.Component.Tools</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Core.Data\XZTJY.Core.Data.csproj">
+      <Project>{c425e18f-1ebe-4143-884f-65dfd0adb736}</Project>
+      <Name>XZTJY.Core.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XZTJY.Services.Core\XZTJY.Services.Core.csproj">
       <Project>{9a815c3e-6817-4b5c-8a1a-731be585892e}</Project>
       <Name>XZTJY.Services.Core</Name>

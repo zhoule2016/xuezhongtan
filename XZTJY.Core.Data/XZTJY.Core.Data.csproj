@@ -34,7 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,8 +47,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Context\XZTDbContext.cs" />
+    <Compile Include="Context\XZTUnitOfWorkContext.cs" />
+    <Compile Include="Initialize\DatabaseInitializer.cs" />
+    <Compile Include="Initialize\SampleData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ILoginLogRepository.cs" />
+    <Compile Include="Repositories\IMemberExtendRepository.cs" />
+    <Compile Include="Repositories\IMemberRepository.cs" />
+    <Compile Include="Repositories\Impl\LoginLogRepository.cs" />
+    <Compile Include="Repositories\Impl\MemberExtendRepository.cs" />
+    <Compile Include="Repositories\Impl\MemberRepository.cs" />
+    <Compile Include="Repositories\Impl\RoleRepository.cs" />
+    <Compile Include="Repositories\IRoleRepository.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XZTJY.Component.Data\XZTJY.Component.Data.csproj">
+      <Project>{f2464c23-af71-4bc9-8904-d33925cfe3ec}</Project>
+      <Name>XZTJY.Component.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Component.Tools\XZTJY.Component.Tools.csproj">
+      <Project>{31397840-bbff-40f3-8060-b03019a3e5fe}</Project>
+      <Name>XZTJY.Component.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Core.Models\XZTJY.Core.Models.csproj">
+      <Project>{8c035fb3-eda5-4858-b5a3-ea48a1720d73}</Project>
+      <Name>XZTJY.Core.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

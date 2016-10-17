@@ -144,6 +144,10 @@ namespace XZTJY.Component.Data
 
         /// <summary>
         ///   批量注册多个删除的对象到仓储上下文中
+        ///   EF不支持批量操作（直接执行SQL语句的方式除外），但我们可以使用多次变更一次提交的方式来进行批量的插入，删除等操作。
+        ///   在进行数据的变更时，EF默认会自动的跟踪数据的变化（AutoDetectChangesEnabled = true），当变更的数据量较大的时候，
+        ///   EF的跟踪工作量就会骤增，使指定操作变得非常缓慢（这也是部分同学怀疑EF的性能问题的一个怀疑点），
+        ///   其实，只要在批量操作的时候把自动跟踪关闭（AutoDetectChangesEnabled = false），即可解决缓慢的问题
         /// </summary>
         /// <typeparam name="TEntity"> 要注册的类型 </typeparam>
         /// <param name="entities"> 要注册的对象集合 </param>

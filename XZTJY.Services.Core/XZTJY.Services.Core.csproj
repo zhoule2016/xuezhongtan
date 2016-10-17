@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,12 +46,21 @@
   <ItemGroup>
     <Compile Include="IAccountContract.cs" />
     <Compile Include="Impl\AccountService.cs" />
+    <Compile Include="Impl\CoreServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XZTJY.Component.Data\XZTJY.Component.Data.csproj">
+      <Project>{f2464c23-af71-4bc9-8904-d33925cfe3ec}</Project>
+      <Name>XZTJY.Component.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XZTJY.Component.Tools\XZTJY.Component.Tools.csproj">
       <Project>{31397840-bbff-40f3-8060-b03019a3e5fe}</Project>
       <Name>XZTJY.Component.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Core.Data\XZTJY.Core.Data.csproj">
+      <Project>{c425e18f-1ebe-4143-884f-65dfd0adb736}</Project>
+      <Name>XZTJY.Core.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\XZTJY.Core.Models\XZTJY.Core.Models.csproj">
       <Project>{8c035fb3-eda5-4858-b5a3-ea48a1720d73}</Project>
