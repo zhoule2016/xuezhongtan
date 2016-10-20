@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHelper.cs" />
+    <Compile Include="EFDbContext.cs" />
     <Compile Include="EFRepositoryBase.cs" />
+    <Compile Include="EFRepositoryContext.cs" />
+    <Compile Include="IEntityMapper.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="IUnitOfWorkContext.cs" />

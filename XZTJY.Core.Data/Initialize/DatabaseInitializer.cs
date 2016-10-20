@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using XZTJY.Core.Data.Context;
-
+using XZTJY.Component.Data;
+using XZTJY.Core.Data.Migrations;
 namespace XZTJY.Core.Data.Initialize
 {
     /// <summary>
@@ -18,11 +17,7 @@ namespace XZTJY.Core.Data.Initialize
         /// </summary>
         public static void Initialize()
         {
-            Database.SetInitializer(new SampleData());
-            using (var db = new XZTDbContext())
-            {
-                db.Database.Initialize(false);
-            }
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EFDbContext, Configuration>());
         }
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="LoginInfo.cs" />
     <Compile Include="LoginLog.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="MemberAddress.cs" />
     <Compile Include="MemberExtend.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />

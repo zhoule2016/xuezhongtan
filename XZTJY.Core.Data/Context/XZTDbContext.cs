@@ -6,6 +6,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XZTJY.Core.Data.Configurations;
 using XZTJY.Core.Models;
 
 namespace XZTJY.Core.Data.Context
@@ -52,9 +53,15 @@ namespace XZTJY.Core.Data.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //移除一对多的级联删除约定，想要级联删除可以在 EntityTypeConfiguration<TEntity>的实现类中进行控制
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            //多对多启用级联删除约定，不想级联删除可以在删除前判断关联的数据进行拦截
-            //modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+             //多对多启用级联删除约定，不想级联删除可以在删除前判断关联的数据进行拦截
+             //modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+         
+             modelBuilder.Configurations.Add(new MemberConfiguration());
+             modelBuilder.Configurations.Add(new MemberExtendConfiguration());
+             modelBuilder.Configurations.Add(new MemberAddressConfiguration());
+             modelBuilder.Configurations.Add(new RoleConfiguration());
+             modelBuilder.Configurations.Add(new LoginLogConfiguration());
         }
     }
 }

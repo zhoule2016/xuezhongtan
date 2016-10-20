@@ -47,10 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\LoginLogConfiguration.cs" />
+    <Compile Include="Configurations\MemberAddressConfiguration.cs" />
+    <Compile Include="Configurations\MemberConfiguration.cs" />
+    <Compile Include="Configurations\MemberExtendConfiguration.cs" />
+    <Compile Include="Configurations\RoleConfiguration.cs" />
     <Compile Include="Context\XZTDbContext.cs" />
     <Compile Include="Context\XZTUnitOfWorkContext.cs" />
     <Compile Include="Initialize\DatabaseInitializer.cs" />
     <Compile Include="Initialize\SampleData.cs" />
+    <Compile Include="Migrations%28迁移%29\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ILoginLogRepository.cs" />
     <Compile Include="Repositories\IMemberExtendRepository.cs" />
