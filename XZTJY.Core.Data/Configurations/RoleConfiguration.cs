@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XZTJY.Component.Data;
-using XZTJY.Core.Models;
+using XZTJY.Core.Models.Security;
 
 namespace XZTJY.Core.Data.Configurations
 {

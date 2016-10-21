@@ -12,7 +12,8 @@ namespace XZTJY.Component.Data
     ///     定义仓储模型中的数据标准操作
     /// </summary>
     /// <typeparam name="TEntity">动态实体类型</typeparam>
-    public interface IRepository<TEntity> where TEntity : Entity
+    /// <typeparam name="TKey">实体主键类型</typeparam>
+    public interface IRepository<TEntity, in TKey> where TEntity : EntityBase<TKey>
     {
         #region 属性
 
@@ -26,7 +27,7 @@ namespace XZTJY.Component.Data
         #region 公共方法
 
         /// <summary>
-        ///     插入实体记录,每个操作方法都带有一个 isSave 可选参数，是为了单个实体操作的需要，免去了每次都要调用 context.SaveChanged()的麻烦。如果是进行多个实体的单元事务操作，就需要把这个参数设置为 false 。
+        ///     插入实体记录
         /// </summary>
         /// <param name="entity"> 实体对象 </param>
         /// <param name="isSave"> 是否执行保存 </param>
@@ -47,7 +48,7 @@ namespace XZTJY.Component.Data
         /// <param name="id"> 实体记录编号 </param>
         /// <param name="isSave"> 是否执行保存 </param>
         /// <returns> 操作影响的行数 </returns>
-        int Delete(object id, bool isSave = true);
+        int Delete(TKey id, bool isSave = true);
 
         /// <summary>
         ///     删除实体记录
@@ -82,11 +83,20 @@ namespace XZTJY.Component.Data
         int Update(TEntity entity, bool isSave = true);
 
         /// <summary>
+        /// 使用附带新值的实体信息更新指定实体属性的值
+        /// </summary>
+        /// <param name="propertyExpression">属性表达式</param>
+        /// <param name="isSave">是否执行保存</param>
+        /// <param name="entity">附带新值的实体信息，必须包含主键</param>
+        /// <returns>操作影响的行数</returns>
+        int Update(Expression<Func<TEntity, object>> propertyExpression, TEntity entity, bool isSave = true);
+
+        /// <summary>
         ///     查找指定主键的实体记录
         /// </summary>
         /// <param name="key"> 指定主键 </param>
         /// <returns> 符合编号的记录，不存在返回null </returns>
-        TEntity GetByKey(object key);
+        TEntity GetByKey(TKey key);
 
         #endregion
     }

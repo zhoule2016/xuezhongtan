@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace XZTJY.Component.Data
     /// <summary>
     ///     EF数据访问上下文
     /// </summary>
-    [Export(typeof(DbContext))]
+    [Export("EF", typeof(DbContext))]
     public class EFDbContext : DbContext
     {
         public EFDbContext()
@@ -20,6 +21,9 @@ namespace XZTJY.Component.Data
 
         public EFDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString) { }
+
+        public EFDbContext(DbConnection existingConnection)
+            : base(existingConnection, true) { }
 
         [ImportMany(typeof(IEntityMapper))]
         public IEnumerable<IEntityMapper> EntityMappers { get; set; }
@@ -31,7 +35,6 @@ namespace XZTJY.Component.Data
             if (EntityMappers == null)
             {
                 return;
-                //throw PublicHelper.ThrowDataAccessException("实体映射对象个数为0，创建DbContext上下文对象失败。");
             }
 
             foreach (var mapper in EntityMappers)

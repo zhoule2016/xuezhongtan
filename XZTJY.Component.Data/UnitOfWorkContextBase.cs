@@ -4,10 +4,11 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using XZTJY.Component.Tools;
-
+using XZTJY.Component.Data.Extensions;
 namespace XZTJY.Component.Data
 {
     /// <summary>
@@ -25,11 +26,14 @@ namespace XZTJY.Component.Data
         /// </summary>
         public bool IsCommitted { get; private set; }
 
+        public DbContext DbContext { get { return Context; } }
+
         /// <summary>
         ///     提交当前单元操作的结果
         /// </summary>
+        /// <param name="validateOnSaveEnabled">保存时是否自动验证跟踪实体</param>
         /// <returns></returns>
-        public int Commit()
+        public int Commit(bool validateOnSaveEnabled = true)
         {
             if (IsCommitted)
             {
@@ -37,7 +41,7 @@ namespace XZTJY.Component.Data
             }
             try
             {
-                int result = Context.SaveChanges();
+                int result = Context.SaveChanges(validateOnSaveEnabled);
                 IsCommitted = true;
                 return result;
             }
@@ -74,8 +78,9 @@ namespace XZTJY.Component.Data
         ///   为指定的类型返回 System.Data.Entity.DbSet，这将允许对上下文中的给定实体执行 CRUD 操作。
         /// </summary>
         /// <typeparam name="TEntity"> 应为其返回一个集的实体类型。 </typeparam>
+        /// <typeparam name="TKey">实体主键类型</typeparam>
         /// <returns> 给定实体类型的 System.Data.Entity.DbSet 实例。 </returns>
-        public DbSet<TEntity> Set<TEntity>() where TEntity : Entity
+        public DbSet<TEntity> Set<TEntity, TKey>() where TEntity : EntityBase<TKey>
         {
             return Context.Set<TEntity>();
         }
@@ -84,8 +89,9 @@ namespace XZTJY.Component.Data
         ///     注册一个新的对象到仓储上下文中
         /// </summary>
         /// <typeparam name="TEntity"> 要注册的类型 </typeparam>
+        /// <typeparam name="TKey">实体主键类型</typeparam>
         /// <param name="entity"> 要注册的对象 </param>
-        public void RegisterNew<TEntity>(TEntity entity) where TEntity : Entity
+        public void RegisterNew<TEntity, TKey>(TEntity entity) where TEntity : EntityBase<TKey>
         {
             EntityState state = Context.Entry(entity).State;
             if (state == EntityState.Detached)
@@ -99,15 +105,16 @@ namespace XZTJY.Component.Data
         ///     批量注册多个新的对象到仓储上下文中
         /// </summary>
         /// <typeparam name="TEntity"> 要注册的类型 </typeparam>
+        /// <typeparam name="TKey">实体主键类型</typeparam>
         /// <param name="entities"> 要注册的对象集合 </param>
-        public void RegisterNew<TEntity>(IEnumerable<TEntity> entities) where TEntity : Entity
+        public void RegisterNew<TEntity, TKey>(IEnumerable<TEntity> entities) where TEntity : EntityBase<TKey>
         {
             try
             {
                 Context.Configuration.AutoDetectChangesEnabled = false;
                 foreach (TEntity entity in entities)
                 {
-                    RegisterNew(entity);
+                    RegisterNew<TEntity, TKey>(entity);
                 }
             }
             finally
@@ -120,14 +127,24 @@ namespace XZTJY.Component.Data
         ///     注册一个更改的对象到仓储上下文中
         /// </summary>
         /// <typeparam name="TEntity"> 要注册的类型 </typeparam>
+        /// <typeparam name="TKey">实体主键类型</typeparam>
         /// <param name="entity"> 要注册的对象 </param>
-        public void RegisterModified<TEntity>(TEntity entity) where TEntity : Entity
+        public void RegisterModified<TEntity, TKey>(TEntity entity) where TEntity : EntityBase<TKey>
         {
-            if (Context.Entry(entity).State == EntityState.Detached)
-            {
-                Context.Set<TEntity>().Attach(entity);
-            }
-            Context.Entry(entity).State = EntityState.Modified;
+            Context.Update<TEntity, TKey>(entity);
+            IsCommitted = false;
+        }
+
+        /// <summary>
+        /// 使用指定的属性表达式指定注册更改的对象到仓储上下文中
+        /// </summary>
+        /// <typeparam name="TEntity">要注册的类型</typeparam>
+        /// <typeparam name="TKey">主键类型</typeparam>
+        /// <param name="propertyExpression">属性表达式，包含要更新的实体属性</param>
+        /// <param name="entity">附带新值的实体信息，必须包含主键</param>
+        public void RegisterModified<TEntity, TKey>(Expression<Func<TEntity, object>> propertyExpression, TEntity entity) where TEntity : EntityBase<TKey>
+        {
+            Context.Update<TEntity, TKey>(propertyExpression, entity);
             IsCommitted = false;
         }
 
@@ -135,8 +152,9 @@ namespace XZTJY.Component.Data
         ///   注册一个删除的对象到仓储上下文中
         /// </summary>
         /// <typeparam name="TEntity"> 要注册的类型 </typeparam>
+        /// <typeparam name="TKey">实体主键类型</typeparam>
         /// <param name="entity"> 要注册的对象 </param>
-        public void RegisterDeleted<TEntity>(TEntity entity) where TEntity : Entity
+        public void RegisterDeleted<TEntity, TKey>(TEntity entity) where TEntity : EntityBase<TKey>
         {
             Context.Entry(entity).State = EntityState.Deleted;
             IsCommitted = false;
@@ -144,21 +162,18 @@ namespace XZTJY.Component.Data
 
         /// <summary>
         ///   批量注册多个删除的对象到仓储上下文中
-        ///   EF不支持批量操作（直接执行SQL语句的方式除外），但我们可以使用多次变更一次提交的方式来进行批量的插入，删除等操作。
-        ///   在进行数据的变更时，EF默认会自动的跟踪数据的变化（AutoDetectChangesEnabled = true），当变更的数据量较大的时候，
-        ///   EF的跟踪工作量就会骤增，使指定操作变得非常缓慢（这也是部分同学怀疑EF的性能问题的一个怀疑点），
-        ///   其实，只要在批量操作的时候把自动跟踪关闭（AutoDetectChangesEnabled = false），即可解决缓慢的问题
         /// </summary>
         /// <typeparam name="TEntity"> 要注册的类型 </typeparam>
+        /// <typeparam name="TKey">实体主键类型</typeparam>
         /// <param name="entities"> 要注册的对象集合 </param>
-        public void RegisterDeleted<TEntity>(IEnumerable<TEntity> entities) where TEntity : Entity
+        public void RegisterDeleted<TEntity, TKey>(IEnumerable<TEntity> entities) where TEntity : EntityBase<TKey>
         {
             try
             {
                 Context.Configuration.AutoDetectChangesEnabled = false;
                 foreach (TEntity entity in entities)
                 {
-                    RegisterDeleted(entity);
+                    RegisterDeleted<TEntity, TKey>(entity);
                 }
             }
             finally
@@ -167,4 +182,5 @@ namespace XZTJY.Component.Data
             }
         }
     }
+
 }

@@ -8,7 +8,7 @@ using System.Web.Security;
 using XZTJY.Component.Tools;
 using XZTJY.Services.Core.Impl;
 using XZTJY.Site.Models;
-using XZTJY.Core.Models;
+using XZTJY.Core.Models.Account;
 using System.ComponentModel.Composition;
 
 namespace XZTJY.Site.Apply.Impl

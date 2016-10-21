@@ -4,10 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using XZTJY.Core.Models;
+using XZTJY.Core.Models.Account;
 using XZTJY.Component.Tools;
 using System.ComponentModel.Composition;
 using XZTJY.Core.Data.Repositories;
+using XZTJY.Core.Data.Repositories.Account;
+using XZTJY.Data.Repositories.Account;
+using XZTJY.Core.Data.Repositories.Security;
+using XZTJY.Core.Models.Security;
 namespace XZTJY.Services.Core.Impl
 {
     /// <summary>
@@ -15,7 +19,7 @@ namespace XZTJY.Services.Core.Impl
     /// </summary>
     public abstract class AccountService : CoreServiceBase, IAccountContract
     {
-        #region 属性
+       
 
         #region 受保护的属性
 
@@ -26,12 +30,61 @@ namespace XZTJY.Services.Core.Impl
         protected IMemberRepository MemberRepository { get; set; }
 
         /// <summary>
+        /// 获取或设置 用户扩展信息数据访问对象
+        /// </summary>
+        [Import]
+        protected IMemberExtendRepository MemberExtendRepository { get; set; }
+
+
+        /// <summary>
         /// 获取或设置 登录记录信息数据访问对象
         /// </summary>
         [Import]
         protected ILoginLogRepository LoginLogRepository { get; set; }
 
+        /// <summary>
+        /// 获取或设置 角色信息业务访问对象
+        /// </summary>
+        [Import]
+        protected IRoleRepository RoleRepository { get; set; }
+
+
         #endregion
+
+
+        #region 公共属性
+
+        /// <summary>
+        /// 获取 用户信息查询数据集
+        /// </summary>
+        public IQueryable<Member> Members
+        {
+            get { return MemberRepository.Entities; }
+        }
+
+        /// <summary>
+        /// 获取 用户扩展信息查询数据集
+        /// </summary>
+        public IQueryable<MemberExtend> MemberExtends
+        {
+            get { return MemberExtendRepository.Entities; }
+        }
+
+        /// <summary>
+        /// 获取 登录记录信息查询数据集
+        /// </summary>
+        public IQueryable<LoginLog> LoginLogs
+        {
+            get { return LoginLogRepository.Entities; }
+        }
+
+        /// <summary>
+        /// 获取 角色信息查询数据集
+        /// </summary>
+        public IQueryable<Role> Roles
+        {
+            get { return RoleRepository.Entities; }
+        }
 
         #endregion
 
