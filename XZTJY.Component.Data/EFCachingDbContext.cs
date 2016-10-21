@@ -55,6 +55,7 @@ namespace XZTJY.Component.Data
             EFCachingConnection connection = new EFCachingConnection
             {
                 ConnectionString = wrappedConnectionString,
+                //缓存策略
                 CachingPolicy = CachingPolicy.CacheAll,
                 Cache = InMemoryCache
             };
