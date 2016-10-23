@@ -16,7 +16,7 @@ namespace XZTJY.Site.Apply.Impl
     /// <summary>
     ///     账户模块站点业务实现
     /// </summary
-    /// >
+    /// 
     /// 
     [Export(typeof(IAccountSiteContract))]
      internal class AccountSiteService : AccountService, IAccountSiteContract
@@ -31,7 +31,7 @@ namespace XZTJY.Site.Apply.Impl
             PublicHelper.CheckArgument(model, "model");
             LoginInfo loginInfo = new LoginInfo
             {
-                Access = model.Account,
+                Account = model.Account,
                 Password = model.Password,
                 IpAddress = HttpContext.Current.Request.UserHostAddress
             };

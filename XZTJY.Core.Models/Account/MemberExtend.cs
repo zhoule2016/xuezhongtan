@@ -14,13 +14,17 @@ namespace XZTJY.Core.Models.Account
     public class MemberExtend : EntityBase<Guid>
     {
         /// <summary>
-        /// 获取或设置 编号
+        /// 初始化一个 用户扩展实体类 的新实例
         /// </summary>
-        public Guid Id { get; set; }
+        public MemberExtend()
+        {
+            Id = CombHelper.NewComb();
+        }
 
-        /// <summary>
-        /// 获取或设置 用户信息
-        /// </summary>
+        public string Tel { get; set; }
+
+        public MemberAddress Address { get; set; }
+
         public virtual Member Member { get; set; }
     }
 

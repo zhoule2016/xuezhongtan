@@ -10,36 +10,39 @@ using XZTJY.Core.Models.Account;
 namespace XZTJY.Core.Models.Security
 {
     /// <summary>
-    /// 实体类——角色信息
+    ///     实体类——角色信息
     /// </summary>
     [Description("角色信息")]
     public class Role : EntityBase<Guid>
     {
-        /// <summary>
-        /// 获取或设置 角色编号
-        /// </summary>
-        public Guid Id { get; set; }
+        public Role()
+        {
+            Id = CombHelper.NewComb();
+        }
 
-        /// <summary>
-        /// 获取或设置 角色名称
-        /// </summary>
         [Required]
         [StringLength(20)]
         public string Name { get; set; }
 
-        /// <summary>
-        /// 获取或设置 角色描述
-        /// </summary>
         [StringLength(100)]
         public string Description { get; set; }
 
         /// <summary>
         /// 获取或设置 角色类型
         /// </summary>
-        public RoleType RoleType { get; set; }
+        public RoleType RoleType
+        {
+            get { return (RoleType)RoleTypeNum; }
+            set { RoleTypeNum = (int)value; }
+        }
 
         /// <summary>
-        /// 获取或设置 拥有此角色的用户信息集合
+        /// 获取或设置 角色类型的数值表示，用于数据库存储
+        /// </summary>
+        public int RoleTypeNum { get; set; }
+
+        /// <summary>
+        ///     获取或设置 拥有此角色的用户信息集合
         /// </summary>
         public virtual ICollection<Member> Members { get; set; }
     }

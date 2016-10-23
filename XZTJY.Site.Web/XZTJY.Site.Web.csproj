@@ -44,6 +44,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcPager3">
+      <HintPath>..\packages\MvcPager3.1.5\lib\net40\MvcPager3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -182,6 +185,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="log4net.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -194,14 +198,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -219,6 +215,14 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -238,6 +242,10 @@
     <ProjectReference Include="..\XZTJY.Core.Data\XZTJY.Core.Data.csproj">
       <Project>{c425e18f-1ebe-4143-884f-65dfd0adb736}</Project>
       <Name>XZTJY.Core.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Core.Models\XZTJY.Core.Models.csproj">
+      <Project>{8c035fb3-eda5-4858-b5a3-ea48a1720d73}</Project>
+      <Name>XZTJY.Core.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\XZTJY.Services.Core\XZTJY.Services.Core.csproj">
       <Project>{9a815c3e-6817-4b5c-8a1a-731be585892e}</Project>

@@ -14,7 +14,7 @@ namespace XZTJY.Site.Apply.Helper.Ioc
     public class MefDependencySolver : IDependencyResolver
     {
         private readonly ComposablePartCatalog _catalog;
-        private readonly string _httpContextKey = Guid.NewGuid().ToString();
+        private const string MefContainerKey = "MefContainerKey";
 
         public MefDependencySolver(ComposablePartCatalog catalog)
         {
@@ -25,11 +25,11 @@ namespace XZTJY.Site.Apply.Helper.Ioc
         {
             get
             {
-                if (!HttpContext.Current.Items.Contains(_httpContextKey))
+                if (!HttpContext.Current.Items.Contains(MefContainerKey))
                 {
-                    HttpContext.Current.Items.Add(_httpContextKey, new CompositionContainer(_catalog));
+                    HttpContext.Current.Items.Add(MefContainerKey, new CompositionContainer(_catalog));
                 }
-                CompositionContainer container = (CompositionContainer)HttpContext.Current.Items[_httpContextKey];
+                CompositionContainer container = (CompositionContainer)HttpContext.Current.Items[MefContainerKey];
                 HttpContext.Current.Application["Container"] = container;
                 return container;
             }

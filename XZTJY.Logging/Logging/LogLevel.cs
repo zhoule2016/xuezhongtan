@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XZTJY.Component.Tools.Logging
+namespace XZTJY.Logging
 {
     /// <summary>
     ///     表示日志级别的枚举

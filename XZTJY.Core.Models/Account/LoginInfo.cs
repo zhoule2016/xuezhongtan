@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace XZTJY.Core.Models.Account
 {
     /// <summary>
@@ -14,7 +9,7 @@ namespace XZTJY.Core.Models.Account
         /// <summary>
         ///     获取或设置 登录账号
         /// </summary>
-        public string Access { get; set; }
+        public string Account { get; set; }
 
         /// <summary>
         ///     获取或设置 登录密码

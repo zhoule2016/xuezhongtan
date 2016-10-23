@@ -8,7 +8,7 @@ using log4net.Appender;
 using log4net.Config;
 using log4net.Layout;
 
-namespace XZTJY.Component.Tools.Logging
+namespace XZTJY.Logging
 {
     /// <summary>
     ///     日志操作管理类

@@ -5,7 +5,6 @@ using System.Linq;
 
 using XZTJY.Component.Data;
 using XZTJY.Core.Models.Account;
-using XZTJY.Data.Repositories.Account;
 
 
 namespace XZTJY.Core.Data.Repositories.Account.Impl

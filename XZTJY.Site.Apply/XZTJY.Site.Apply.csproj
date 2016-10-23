@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\Ioc\MefDependencySolver.cs" />
+    <Compile Include="Helper\Logging\AdminLogAttribute.cs" />
+    <Compile Include="Helper\SiteStaticStrings.cs" />
     <Compile Include="IAccountSiteContract.cs" />
     <Compile Include="Impl\AccountSiteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -62,6 +64,10 @@
     <ProjectReference Include="..\XZTJY.Core.Models\XZTJY.Core.Models.csproj">
       <Project>{8c035fb3-eda5-4858-b5a3-ea48a1720d73}</Project>
       <Name>XZTJY.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XZTJY.Logging\XZTJY.Logging.csproj">
+      <Project>{9b6b8dec-9932-4ccb-9f92-30bf51fc517c}</Project>
+      <Name>XZTJY.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\XZTJY.Services.Core\XZTJY.Services.Core.csproj">
       <Project>{9a815c3e-6817-4b5c-8a1a-731be585892e}</Project>

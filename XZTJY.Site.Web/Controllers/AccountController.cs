@@ -17,17 +17,12 @@ using XZTJY.Component.Tools.Extensions;
 using System.ComponentModel.Composition;
 namespace XZTJY.Site.Web.Controllers
 {
-    
-   [Export]
+
+    [Export]
     public class AccountController : Controller
     {
-
-        public AccountController()
-        {
-            //AccountContract = new AccountSiteService();
-        }
-
         #region 属性
+
         [Import]
         public IAccountSiteContract AccountContract { get; set; }
 
@@ -47,6 +42,7 @@ namespace XZTJY.Site.Web.Controllers
         }
 
         [HttpPost]
+
         public ActionResult Login(LoginModel model)
         {
             try

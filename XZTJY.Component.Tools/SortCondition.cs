@@ -10,13 +10,13 @@ namespace XZTJY.Component.Tools
     /// <summary>
     ///     属性排序条件信息类
     /// </summary>
-    public class PropertySortCondition
+    public class SortCondition
     {
         /// <summary>
         ///     构造一个指定属性名称的升序排序的排序条件
         /// </summary>
         /// <param name="propertyName">排序属性名称</param>
-        public PropertySortCondition(string propertyName)
+        public SortCondition(string propertyName)
             : this(propertyName, ListSortDirection.Ascending) { }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace XZTJY.Component.Tools
         /// </summary>
         /// <param name="propertyName">排序属性名称</param>
         /// <param name="listSortDirection">排序方式</param>
-        public PropertySortCondition(string propertyName, ListSortDirection listSortDirection)
+        public SortCondition(string propertyName, ListSortDirection listSortDirection)
         {
             PropertyName = propertyName;
             ListSortDirection = listSortDirection;

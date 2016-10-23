@@ -1,49 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
+﻿
 using XZTJY.Component.Tools;
 using XZTJY.Core.Models.Security;
+
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 namespace XZTJY.Core.Models.Account
 {
+   
     /// <summary>
     ///     实体类——用户信息
     /// </summary>
     [Description("用户信息")]
     public class Member : EntityBase<int>
     {
-        /// <summary>
-        /// 获取或设置 用户编号
-        /// </summary>
-        public int Id { get; set; }
+        public Member()
+        {
+            Roles = new List<Role>();
+            LoginLogs = new List<LoginLog>();
+        }
 
-        /// <summary>
-        /// 获取或设置 用户名
-        /// </summary>
         [Required]
         [StringLength(20)]
         public string UserName { get; set; }
 
-        /// <summary>
-        /// 获取或设置 密码
-        /// </summary>
         [Required]
         [StringLength(32)]
         public string Password { get; set; }
 
-        /// <summary>
-        /// 获取或设置 用户昵称
-        /// </summary>
         [Required]
         [StringLength(20)]
         public string NickName { get; set; }
 
-        /// <summary>
-        /// 获取或设置 用户邮箱
-        /// </summary>
         [Required]
         [StringLength(50)]
         public string Email { get; set; }

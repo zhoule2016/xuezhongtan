@@ -5,7 +5,7 @@ using XZTJY.Component.Data;
 using XZTJY.Core.Models.Account;
 
 
-namespace XZTJY.Data.Repositories.Account
+namespace XZTJY.Core.Data.Repositories.Account
 {
 	/// <summary>
     ///   仓储操作层接口——登录记录信息

@@ -15,6 +15,7 @@ namespace XZTJY.Site.Models
         /// 获取或设置 登录账号
         /// </summary>
         [Required]
+        [Display(Name = "登录账号")]
         public string Account { get; set; }
 
         /// <summary>
@@ -22,11 +23,13 @@ namespace XZTJY.Site.Models
         /// </summary>
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "登录密码")]
         public string Password { get; set; }
 
         /// <summary>
         /// 获取或设置 是否记住登录
         /// </summary>
+        [Display(Name = "记住登录")]
         public bool IsRememberLogin { get; set; }
 
         /// <summary>

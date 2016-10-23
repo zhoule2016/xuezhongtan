@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using XZTJY.Core.Models.Account;
-using XZTJY.Component.Tools;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using XZTJY.Core.Data.Repositories;
+using System.Linq;
+
+using XZTJY.Component.Tools;
+using XZTJY.Core.Models.Account;
 using XZTJY.Core.Data.Repositories.Account;
-using XZTJY.Data.Repositories.Account;
 using XZTJY.Core.Data.Repositories.Security;
 using XZTJY.Core.Models.Security;
+
+
 namespace XZTJY.Services.Core.Impl
 {
     /// <summary>
@@ -19,7 +16,7 @@ namespace XZTJY.Services.Core.Impl
     /// </summary>
     public abstract class AccountService : CoreServiceBase, IAccountContract
     {
-       
+        #region 属性
 
         #region 受保护的属性
 
@@ -35,7 +32,6 @@ namespace XZTJY.Services.Core.Impl
         [Import]
         protected IMemberExtendRepository MemberExtendRepository { get; set; }
 
-
         /// <summary>
         /// 获取或设置 登录记录信息数据访问对象
         /// </summary>
@@ -48,9 +44,7 @@ namespace XZTJY.Services.Core.Impl
         [Import]
         protected IRoleRepository RoleRepository { get; set; }
 
-
         #endregion
-
 
         #region 公共属性
 
@@ -88,6 +82,8 @@ namespace XZTJY.Services.Core.Impl
 
         #endregion
 
+        #endregion
+
         /// <summary>
         /// 用户登录
         /// </summary>
@@ -96,7 +92,7 @@ namespace XZTJY.Services.Core.Impl
         public virtual OperationResult Login(LoginInfo loginInfo)
         {
             PublicHelper.CheckArgument(loginInfo, "loginInfo");
-            Member member = MemberRepository.Entities.SingleOrDefault(m => m.UserName == loginInfo.Access || m.Email == loginInfo.Access);
+            Member member = MemberRepository.Entities.SingleOrDefault(m => m.UserName == loginInfo.Account || m.Email == loginInfo.Account);
             if (member == null)
             {
                 return new OperationResult(OperationResultType.QueryNull, "指定账号的用户不存在。");
@@ -110,5 +106,4 @@ namespace XZTJY.Services.Core.Impl
             return new OperationResult(OperationResultType.Success, "登录成功。", member);
         }
     }
-
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+
 
 namespace XZTJY.Component.Tools.Extensions
 {
@@ -111,7 +113,7 @@ namespace XZTJY.Component.Tools.Extensions
         /// <param name="source">要排序的数据集</param>
         /// <param name="sortCondition">列表属性排序条件</param>
         /// <returns></returns>
-        public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> source, PropertySortCondition sortCondition)
+        public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> source, SortCondition sortCondition)
         {
             PublicHelper.CheckArgument(sortCondition, "sortCondition");
             return source.OrderBy(sortCondition.PropertyName, sortCondition.ListSortDirection);
@@ -139,7 +141,7 @@ namespace XZTJY.Component.Tools.Extensions
         /// <param name="source">要排序的数据集</param>
         /// <param name="sortCondition">列表属性排序条件</param>
         /// <returns></returns>
-        public static IOrderedQueryable<T> ThenBy<T>(this IOrderedQueryable<T> source, PropertySortCondition sortCondition)
+        public static IOrderedQueryable<T> ThenBy<T>(this IOrderedQueryable<T> source, SortCondition sortCondition)
         {
             PublicHelper.CheckArgument(sortCondition, "sortCondition");
             return source.ThenBy(sortCondition.PropertyName, sortCondition.ListSortDirection);
@@ -158,7 +160,7 @@ namespace XZTJY.Component.Tools.Extensions
         /// <param name="sortConditions">排序条件集合</param>
         /// <returns></returns>
         public static IQueryable<TEntity> Where<TEntity, TKey>(this IQueryable<TEntity> source, Expression<Func<TEntity, bool>> predicate, int pageIndex, int pageSize,
-            out int total, PropertySortCondition[] sortConditions = null) where TEntity : EntityBase<TKey>
+            out int total, SortCondition[] sortConditions = null) where TEntity : EntityBase<TKey>
         {
             PublicHelper.CheckArgument(source, "source");
             PublicHelper.CheckArgument(predicate, "predicate");
@@ -174,7 +176,7 @@ namespace XZTJY.Component.Tools.Extensions
             {
                 int count = 0;
                 IOrderedQueryable<TEntity> orderSource = null;
-                foreach (PropertySortCondition sortCondition in sortConditions)
+                foreach (SortCondition sortCondition in sortConditions)
                 {
                     orderSource = count == 0
                         ? source.OrderBy(sortCondition.PropertyName, sortCondition.ListSortDirection)

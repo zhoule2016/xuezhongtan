@@ -29,54 +29,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Site.Web", "XZTJY.Sit
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "文档", "文档", "{8120A777-1CFE-4782-8588-A296C4B784C5}"
 	ProjectSection(SolutionItems) = preProject
+		二级缓存.txt = 二级缓存.txt
 		架构说明.txt = 架构说明.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Component.Tools", "XZTJY.Component.Tools\XZTJY.Component.Tools.csproj", "{31397840-BBFF-40F3-8060-B03019A3E5FE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5-Utility（公共组件）", "5-Utility（公共组件）", "{D80B079B-5938-4D45-B966-3A8143A0078D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Common", "XZTJY.Common\XZTJY.Common.csproj", "{8FD0D0A7-7DD3-4EF2-94CC-90AAA0259D3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Mail", "XZTJY.Mail\XZTJY.Mail.csproj", "{4FB7AAB4-2F31-4BAF-9D47-F0992F217F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XZTJY.Logging", "XZTJY.Logging\XZTJY.Logging.csproj", "{9B6B8DEC-9932-4CCB-9F92-30BF51FC517C}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 10
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://xztjy.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = XZTJY.Component.Data\\XZTJY.Component.Data.csproj
-		SccProjectTopLevelParentUniqueName1 = xztjy.sln
-		SccProjectName1 = XZTJY.Component.Data
-		SccLocalPath1 = XZTJY.Component.Data
-		SccProjectUniqueName2 = XZTJY.Services.Core\\XZTJY.Services.Core.csproj
-		SccProjectTopLevelParentUniqueName2 = xztjy.sln
-		SccProjectName2 = XZTJY.Services.Core
-		SccLocalPath2 = XZTJY.Services.Core
-		SccProjectUniqueName3 = XZTJY.Core.Data\\XZTJY.Core.Data.csproj
-		SccProjectTopLevelParentUniqueName3 = xztjy.sln
-		SccProjectName3 = XZTJY.Core.Data
-		SccLocalPath3 = XZTJY.Core.Data
-		SccProjectUniqueName4 = XZTJY.Core.Models\\XZTJY.Core.Models.csproj
-		SccProjectTopLevelParentUniqueName4 = xztjy.sln
-		SccProjectName4 = XZTJY.Core.Models
-		SccLocalPath4 = XZTJY.Core.Models
-		SccProjectUniqueName5 = XZTJY.Site.Apply\\XZTJY.Site.Apply.csproj
-		SccProjectTopLevelParentUniqueName5 = xztjy.sln
-		SccProjectName5 = XZTJY.Site.Apply
-		SccLocalPath5 = XZTJY.Site.Apply
-		SccProjectUniqueName6 = XZTJY.Site.Models\\XZTJY.Site.Models.csproj
-		SccProjectTopLevelParentUniqueName6 = xztjy.sln
-		SccProjectName6 = XZTJY.Site.Models
-		SccLocalPath6 = XZTJY.Site.Models
-		SccProjectUniqueName7 = XZTJY.Consoles\\XZTJY.Consoles.csproj
-		SccProjectTopLevelParentUniqueName7 = xztjy.sln
-		SccProjectName7 = XZTJY.Consoles
-		SccLocalPath7 = XZTJY.Consoles
-		SccProjectUniqueName8 = XZTJY.Site.Web\\XZTJY.Site.Web.csproj
-		SccProjectTopLevelParentUniqueName8 = xztjy.sln
-		SccProjectName8 = XZTJY.Site.Web
-		SccLocalPath8 = XZTJY.Site.Web
-		SccProjectUniqueName9 = XZTJY.Component.Tools\\XZTJY.Component.Tools.csproj
-		SccProjectTopLevelParentUniqueName9 = xztjy.sln
-		SccProjectName9 = XZTJY.Component.Tools
-		SccLocalPath9 = XZTJY.Component.Tools
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -118,6 +85,18 @@ Global
 		{31397840-BBFF-40F3-8060-B03019A3E5FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31397840-BBFF-40F3-8060-B03019A3E5FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31397840-BBFF-40F3-8060-B03019A3E5FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FD0D0A7-7DD3-4EF2-94CC-90AAA0259D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FD0D0A7-7DD3-4EF2-94CC-90AAA0259D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FD0D0A7-7DD3-4EF2-94CC-90AAA0259D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FD0D0A7-7DD3-4EF2-94CC-90AAA0259D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FB7AAB4-2F31-4BAF-9D47-F0992F217F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FB7AAB4-2F31-4BAF-9D47-F0992F217F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FB7AAB4-2F31-4BAF-9D47-F0992F217F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FB7AAB4-2F31-4BAF-9D47-F0992F217F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B6B8DEC-9932-4CCB-9F92-30BF51FC517C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B6B8DEC-9932-4CCB-9F92-30BF51FC517C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B6B8DEC-9932-4CCB-9F92-30BF51FC517C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B6B8DEC-9932-4CCB-9F92-30BF51FC517C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,5 +111,8 @@ Global
 		{FA25E017-055B-4648-9D9D-4F15299141F7} = {C852D4D9-03A1-4849-85A4-2D69A7C10296}
 		{BA0CA5FE-A18D-41B1-B0C6-E7032B38C293} = {C852D4D9-03A1-4849-85A4-2D69A7C10296}
 		{31397840-BBFF-40F3-8060-B03019A3E5FE} = {8936834E-3572-4275-B0F3-D943ED461F24}
+		{8FD0D0A7-7DD3-4EF2-94CC-90AAA0259D3B} = {D80B079B-5938-4D45-B966-3A8143A0078D}
+		{4FB7AAB4-2F31-4BAF-9D47-F0992F217F48} = {D80B079B-5938-4D45-B966-3A8143A0078D}
+		{9B6B8DEC-9932-4CCB-9F92-30BF51FC517C} = {D80B079B-5938-4D45-B966-3A8143A0078D}
 	EndGlobalSection
 EndGlobal

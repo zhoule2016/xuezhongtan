@@ -1,0 +1,11 @@
+ICache：缓存缓存基类，系统中实现了一个内存缓存类（InMemoryCache），适用于单台服务器的缓存实现，如果要实现分布式缓存，可以从这个基类进行扩展。
+InMemoryCache：内存缓存实现类，内部使用了一个Dictionary<string, CacheEntry>作为缓存容器，以查询的SQL语句及参数的连接字符串（或其MD5值）为键（EFCachingCommands.cs类中定义）。还包含了缓存命中、缓存项数量等数据的统计及缓存清理功能。
+CachingPolicy：缓存策略基类，定义了当前实体是否可缓存（CanBeCached）、定义缓存缓存数（GetCacheableRows）、缓存项滑动过期与绝对过期时间（GetExpirationTimeout）等功能，并默认了绝对过期时间为永不过期（DateTime.MaxValue）。
+NoCachingPolicy：不缓存策略，禁用缓存功能。
+CacheAllPolicy：缓存所有数据策略，缓存项最大数量为int.MaxValue。
+CustomCachingPolicy：自定义缓存策略，使用了CacheableTables与NonCacheableTables两个集合来表示数据类型是否可缓存的白名单与黑名单，这两个名单将在重写的CanBeCached方法中作为类型是否可缓存的验证依据。
+EFCachingConnection：此类定义了类型为ICache，CachingPolicy的两个属性，分别用于接收上面据说的两个扩展点。
+
+这里缓存策略使用了缓存所有数据（CacheAllPolicy）的策略，在项目中，最好自定义缓存策略，而不要使用这个策略，以免服务器内存被撑爆。
+
+带缓存的上下文不能担当生成数据库的职责，因此在第一次运行生成数据库的时候，必须关闭缓存。

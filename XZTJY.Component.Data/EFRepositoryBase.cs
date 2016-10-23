@@ -178,4 +178,5 @@ namespace XZTJY.Component.Data
 
         #endregion
     }
+
 }
